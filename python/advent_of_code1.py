@@ -19,7 +19,7 @@ if __name__ == "__main__":
     print(f"the distance of the two lists is: {distance}!")
 
     # get puzzle input through context manager
-    with open("/home/bramtimm/code-projects/rust-python/advent_of_code/data/advent_of_code1/puzzle_input.txt", "r") as f:
+    with open("../data/advent_of_code1/puzzle_input.txt", "r") as f:
         f = [line.split() for line in f if line.strip()]
         list_1 = [int(line[0]) for line in f]
         list_2 = [int(line[1]) for line in f]
