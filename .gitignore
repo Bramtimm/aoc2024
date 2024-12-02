@@ -1,15 +1,11 @@
 ### Python
 
 */.venv
-*.lock
 
 ### Rust
 
 # Generated files
-/target/
-
-# Well, this depends... See below!
-Cargo.lock
+target/
 
 ### General
 /data/

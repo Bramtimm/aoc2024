@@ -1,0 +1,15 @@
+[package]
+name = "advent_of_code"
+version = "0.1.0"
+edition = "2021"
+authors = ["Bram Timmers <bramtimm@gmail.com>"]
+
+[lib]
+name = "advent_of_code_lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "advent_of_code_bin"
+path = "src/bin.rs"
+
+[dependencies]
