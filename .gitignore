@@ -10,3 +10,6 @@
 
 # Well, this depends... See below!
 Cargo.lock
+
+### General
+/data/
