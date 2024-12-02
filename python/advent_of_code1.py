@@ -5,9 +5,9 @@ def advent_of_code1(list_1: List[int], list_2: List[int]) -> int:
     sorted_list_1 = sorted(list_1)
     sorted_list_2 = sorted(list_2)
 
-    distance_list = [sorted_list_1[x] - sorted_list_2[x] for x in range(len(sorted_list_1))]
+    distance_list = [abs(sorted_list_1[x] - sorted_list_2[x]) for x in range(len(sorted_list_1))]
 
-    distance = abs(sum(distance_list))
+    distance = sum(distance_list)
 
     return distance
 
@@ -23,7 +23,8 @@ if __name__ == "__main__":
         f = [line.split() for line in f if line.strip()]
         list_1 = [int(line[0]) for line in f]
         list_2 = [int(line[1]) for line in f]
-
+    # print(list_1)
+    print(list_2)
     distance  = advent_of_code1(list_1, list_2)
     print(f"the distance of the two lists is: {distance}!")
         
