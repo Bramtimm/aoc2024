@@ -1,10 +1,7 @@
-use crate::advent_of_code1::advent_of_code1;
-
 pub mod advent_of_code1;
 #[cfg(test)]
 mod tests {
-    use super::*;
-
+    use crate::advent_of_code1::advent_of_code1;
     #[test]
     fn test_advent_of_code1() {
         let mut vec_1: Vec<i32> = vec![3, 4, 2, 1, 3, 3];

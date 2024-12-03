@@ -1,5 +1,3 @@
-use std::num;
-
 pub fn advent_of_code1(vec_1: &mut Vec<i32>, vec_2: &mut Vec<i32>) -> i32 {
     vec_1.sort();
     vec_2.sort();
