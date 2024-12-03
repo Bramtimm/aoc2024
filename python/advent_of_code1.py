@@ -27,8 +27,6 @@ if __name__ == "__main__":
     print(list_2)
     distance  = advent_of_code1(list_1, list_2)
     print(f"the distance of the two lists is: {distance}!")
-        
-
 
 
 
