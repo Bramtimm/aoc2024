@@ -1,10 +1,18 @@
+use std::num;
+
 pub fn advent_of_code1(vec_1: &mut Vec<i32>, vec_2: &mut Vec<i32>) -> i32 {
+    vec_1.sort();
+    vec_2.sort();
 
-    let distance: i32 = vec_1.iter().sum();
+    let distance_vec: Vec<i32> = vec_1
+        .iter_mut()
+        .zip(vec_2.iter_mut())
+        .map(|(elem_a, elem_b)| *elem_a - *elem_b)
+        .collect();
 
+    let distance: i32 = distance_vec.iter().map(|&x| x.abs()).sum();
     distance
 }
-
 
 // The Chief Historian is always present for the big Christmas sleigh launch, but nobody has seen him in months! Last anyone heard, he was visiting locations that are historically significant to the North Pole; a group of Senior Historians has asked you to accompany them as they check the places they think he was most likely to visit.
 
