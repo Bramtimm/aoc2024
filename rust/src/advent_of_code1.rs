@@ -1,17 +1,11 @@
-fn advent_of_code1() {
+pub fn advent_of_code1(vec_1: &mut Vec<i32>, vec_2: &mut Vec<i32>) -> i32 {
 
-    let mut distance;
+    let distance: i32 = vec_1.iter().sum();
+
+    distance
 }
 
 
-fn assert_advent_of_cod1() {
-
-    let list_1 = [3, 4, 2, 1, 3, 3];
-    let list_2 = [4, 3, 5, 3, 9, 3];
-
-    let mut distance = 1
-    println!("the distance of the two lists is: {}", distance);
-}
 // The Chief Historian is always present for the big Christmas sleigh launch, but nobody has seen him in months! Last anyone heard, he was visiting locations that are historically significant to the North Pole; a group of Senior Historians has asked you to accompany them as they check the places they think he was most likely to visit.
 
 // As each location is checked, they will mark it on their list with a star. They figure the Chief Historian must be in one of the first fifty places they'll look, so in order to save Christmas, you need to help them get fifty stars on their list before Santa takes off on December 25th.
