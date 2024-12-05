@@ -11,6 +11,22 @@ def advent_of_code1(list_1: List[int], list_2: List[int]) -> int:
 
     return distance
 
+def advent_of_code1b(list_1: List[int], list_2: List[int]) -> int:
+    """ calculate similarity score"""
+
+    similarity_list = [0] * len(list_1)
+
+    for item in range(len(list_1)):
+        for item_2 in range(len(list_2)):
+            
+            if list_1[item] == list_2[item_2]:
+                similarity_list[item] += 1
+
+    similarity = sum([list_1[item] * similarity_list[item] for item in range(len(list_1))])
+
+    return similarity
+
+
 if __name__ == "__main__":
 
     # test example
@@ -27,7 +43,14 @@ if __name__ == "__main__":
     distance  = advent_of_code1(list_1, list_2)
     print(f"the distance of the two lists is: {distance}!")
 
+    # test example 2
+    similarity_score = advent_of_code1b(list_1 = [3, 4, 2, 1, 3, 3], list_2=[4, 3, 5, 3, 9, 3]) 
+    print(f"the similarity of the two lists is: {similarity_score}!")
+    assert similarity_score == 31
 
+    # puzzle input
+    similarity_score = advent_of_code1b(list_1, list_2)
+    print(f"the similarity of the two lists is: {similarity_score}!")
 
 # There's just one problem: by holding the two lists up side by side (your puzzle input), it quickly becomes clear that the lists aren't very similar. Maybe you can help The Historians reconcile their lists?
 # // Maybe the lists are only off by a small amount! To find out, pair up the numbers and measure how far apart they are. Pair up the smallest number in the left list with the smallest number in the right list, then the second-smallest left number with the second-smallest right number, and so on.
