@@ -1,6 +1,7 @@
-from typing import List
+from itertools import pairwise, product
 
-def advent_of_code2a(report_matrix: List[List[int]]) -> int:
+
+def advent_of_code2a(report_matrix: list[list[int]]) -> int:
 
     safe_reports = 0
     
@@ -12,6 +13,33 @@ def advent_of_code2a(report_matrix: List[List[int]]) -> int:
                 safe_reports+=1
         
     return safe_reports  
+
+def advent_of_code2b(report_matrix: list[list[int]]) -> int:
+
+    safe_reports = 0
+
+    for row in report_matrix:
+        if is_safe(row):
+            safe_reports +=1
+        else:
+            for idx in range(len(row)):
+                row_copy = row.copy()
+                row_copy.pop(idx)
+                if is_safe(row_copy):
+                    safe_reports +=1
+                    break
+
+    return safe_reports
+
+
+def is_safe(row: list[int]) -> bool:
+        
+    consecutive_diffs = [y-x for x, y in pairwise(row)]
+
+    pos_list = all(item in [1,2,3] for item in consecutive_diffs)
+    neg_list = all(item in [-1,-2,-3] for item in consecutive_diffs)
+        
+    return pos_list or neg_list
 
 if __name__ == "__main__":
 
@@ -32,6 +60,14 @@ if __name__ == "__main__":
     with open("../data/advent_of_code2/puzzle_input.txt", "r") as f:
         report_matrix = [line.split() for line in f if line.strip()]
         report_matrix = [list(map(int, line)) for line in report_matrix]
-        
+
     safe_reports = advent_of_code2a(report_matrix)
     print(f"there are {safe_reports} safe reports in the test!")
+
+    safe_reports_dampened = advent_of_code2b(test_input)
+    print(f"there are {safe_reports_dampened} safe reports in the test when dampened!")
+    assert safe_reports_dampened == 4
+
+    safe_reports_dampened = advent_of_code2b(report_matrix)
+    print(f"there are {safe_reports_dampened} safe reports in the test when dampened!")
+    
