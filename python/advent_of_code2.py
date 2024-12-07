@@ -1,4 +1,4 @@
-from itertools import pairwise, product
+from itertools import pairwise
 
 
 def advent_of_code2a(report_matrix: list[list[int]]) -> int:
