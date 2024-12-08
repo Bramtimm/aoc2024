@@ -3,7 +3,7 @@ use std::fs;
 
 #[test]
 fn test_advent_of_code1_integration() {
-    let mut file_path: &str = "../data/advent_of_code1/puzzle_input.txt";
+    let file_path: &str = "../data/advent_of_code1/puzzle_input.txt";
     let contents = fs::read_to_string(&file_path).expect("Should have been able to read the file");
 
     let mut vec_1 = Vec::new();

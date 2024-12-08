@@ -13,3 +13,4 @@ name = "advent_of_code_bin"
 path = "src/bin.rs"
 
 [dependencies]
+regex = "1.11.1"
