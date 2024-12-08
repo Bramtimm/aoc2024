@@ -10,12 +10,8 @@ def advent_of_code3a(input_str: str) -> int:
 
 def advent_of_code3b(input_str: str) -> int:
 
-    # mul before the first don't 
-    # print(re.split(r"(.*)don't\(\)", input_str)[:1])
-    # mul = [advent_of_code3a(before_first_dont)]
-
     # split on do
-    input_str_splitted = re.split(pattern= r"do\(\)", string=input_str)
+    input_str_splitted = re.split(pattern= r"do\(\)", input_str)
 
     mul = []
     for sub_str in input_str_splitted:
@@ -26,10 +22,6 @@ def advent_of_code3b(input_str: str) -> int:
 
     return sum(mul)
 
-
-
-
-    # do advent_of_code3a
 
 if __name__ ==  "__main__":
 
