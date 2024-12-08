@@ -11,7 +11,7 @@ def advent_of_code3a(input_str: str) -> int:
 def advent_of_code3b(input_str: str) -> int:
 
     # split on do
-    input_str_splitted = re.split(pattern= r"do\(\)", input_str)
+    input_str_splitted = re.split(pattern= r"do\(\)", string=input_str)
 
     mul = []
     for sub_str in input_str_splitted:
