@@ -44,6 +44,14 @@ mod tests {
         let result: i32 = advent_of_code3a(input_str);
         assert_eq!(result, 161);
     }
+
+    #[test]
+    fn test_advent_of_code3b() {
+        let input_str: &str =
+            "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))";
+        let result: i32 = advent_of_code3b(input_str);
+        assert_eq!(result, 48)
+    }
 }
 
 pub fn test() {
