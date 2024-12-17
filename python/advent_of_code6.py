@@ -133,6 +133,27 @@ def advent_of_code6a(input_str: str) -> Matrix:
     
     return flatten_list.count("X")
 
+def advent_of_code6b(input_str: str) -> int:
+
+    puzzle_input = input_str.split()
+    puzzle_input = [list(line) for line in puzzle_input]
+
+    nrows = len(puzzle_input)
+    ncols = len(puzzle_input[0])
+    
+    puzzle_matrix = PositionMatrix(nrow = nrows, ncol = ncols)
+
+    for row in range(0, nrows):
+        for col in range(0, ncols):
+            puzzle_matrix[row, col] = puzzle_input[row][col]
+    
+    # TODO: safe index of moving up/down
+    # TODO: place object on path
+    # TODO: safe index of moving up/down
+    # TODO: check whether second index is subset of first
+    
+    pass
+
 if __name__ == "__main__":
 
     test_input = """....#.....
@@ -154,3 +175,6 @@ if __name__ == "__main__":
 
     puzzle_output = advent_of_code6a(puzzle_input)
     print(f"the answer to aoc6a is: {puzzle_output}")
+
+    test_output = advent_of_code6b(test_input)
+    assert test_output == 6
