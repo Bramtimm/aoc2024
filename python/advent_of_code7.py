@@ -7,12 +7,12 @@ def advent_of_code_7a(input_str: str) -> int:
 
     equations = [equation.split(":") for equation in equations]
 
-    values = [find_calibirations(equation) for equation in equations]
+    values = [find_calibirations(equation, operators = [add, mul]) for equation in equations]
 
     return sum(values)
 
 
-def find_calibirations(equation: list[str], operators = [add, mul]) -> int:
+def find_calibirations(equation: list[str], operators = [add, mul, 'textual_concat']) -> int:
 
     if len(equation) > 2:
         return ValueError("len should not be longer than 2 of list")
@@ -34,9 +34,23 @@ def find_calibirations(equation: list[str], operators = [add, mul]) -> int:
 def apply_operands(operands: list, input: list[str]) -> int:
     result = input[0]
     for i, op in enumerate(operands):
-        result=op(result, input[i+1])
+        if op=="textual_concat":
+            result = int(str(result) + str(input[i+1]))
+        else:
+            result=op(result, input[i+1])
     return result
-    
+
+def advent_of_code_7b(input_str: str) -> int:
+
+    equations = input_str.splitlines()
+
+    equations = [equation.split(":") for equation in equations]
+
+    values = [find_calibirations(equation, operators = [add, mul, 'textual_concat']) for equation in equations]
+
+    return sum(values)
+   
+
 
 if __name__ == "__main__":
     
@@ -58,4 +72,11 @@ if __name__ == "__main__":
         puzzle_input = f.read()
 
     puzzle_output = advent_of_code_7a(puzzle_input)
+    print(f"{puzzle_output}")
+
+    test_output = advent_of_code_7b(test_input)
+    print(f"{test_output}")
+    assert test_output == 11387
+
+    puzzle_output = advent_of_code_7b(puzzle_input)
     print(f"{puzzle_output}")
