@@ -1,11 +1,13 @@
 pub mod advent_of_code1;
 pub mod advent_of_code2;
 pub mod advent_of_code3;
+pub mod advent_of_code4;
 #[cfg(test)]
 mod tests {
     use crate::advent_of_code1::*;
     use crate::advent_of_code2::*;
     use crate::advent_of_code3::*;
+    use crate::advent_of_code4::*;
 
     #[test]
     fn test_advent_of_code1() {
@@ -51,6 +53,22 @@ mod tests {
             "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))";
         let result: i32 = advent_of_code3b(input_str);
         assert_eq!(result, 48)
+    }
+
+    #[test]
+    fn test_advent_of_code4a() {
+        let input_str: &str = "MMMSXXMASM
+MSAMXMSMSA
+AMXSXMAAMM
+MSAMASMSMX
+XMASAMXAMM
+XXAMMXXAMA
+SMSMSASXSS
+SAXAMASAAA
+MAMMMXMMMM
+MXMXAXMASX";
+        let result: i32 = advent_of_code4a(input_str);
+        assert_eq!(result, 18)
     }
 }
 
