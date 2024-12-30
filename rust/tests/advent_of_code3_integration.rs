@@ -1,4 +1,5 @@
 use advent_of_code_lib::advent_of_code3::*;
+
 use std::fs;
 
 #[test]
