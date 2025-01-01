@@ -127,8 +127,5 @@ pub fn advent_of_code4a(input_str: &str) -> i32 {
         }
     }
 
-    println!("{:?}", count);
-    println!("{:?}", matrix.data);
-
     count as i32
 }
