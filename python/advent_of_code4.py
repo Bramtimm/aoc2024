@@ -12,6 +12,7 @@ def advent_of_code4a(test_input: str | list, pattern = 'XMAS') -> int:
         puzzle_input = [list(line[0]) for line in test_input]
 
 
+
     nrows = len(puzzle_input)
     ncols = len(puzzle_input[0])
 
@@ -42,7 +43,7 @@ def advent_of_code4a(test_input: str | list, pattern = 'XMAS') -> int:
     for row in range(0, nrows):
          for col in range(0, ncols):
             
-            if row+pattern_len-1 in range(0,nrows) and col+pattern_len-1 in range(0,ncols):
+            if row+pattern_len-1 < nrows and col+pattern_len-1 < ncols:
                 sub_matrix = Matrix(pattern_len, pattern_len, fill='_')   
                 for row_index, row2 in enumerate(range(row, row+pattern_len)):
                     for col_index, col2 in enumerate(range(col, col+pattern_len)):
@@ -53,7 +54,7 @@ def advent_of_code4a(test_input: str | list, pattern = 'XMAS') -> int:
                 diag_count += len(re.findall(pattern = pattern, string = ''.join(sub_matrix.get_reverse_diagonal()))) 
                 diag_count += len(re.findall(pattern = reverse_pattern, string = ''.join(sub_matrix.get_diagonal()))) 
                 diag_count += len(re.findall(pattern = reverse_pattern, string = ''.join(sub_matrix.get_reverse_diagonal()))) 
-              
+            
     return row_count + col_count + diag_count
 
 

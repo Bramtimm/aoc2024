@@ -1,3 +1,5 @@
+use regex::Regex;
+
 struct Matrix<T> {
     cols: usize,
     rows: usize,
@@ -17,17 +19,31 @@ impl<T> Matrix<T> {
         Matrix { rows, cols, data }
     }
 
-    //TODO make set logic
     fn set(&mut self, row: usize, col: usize, value: T) {
         self.data[row][col] = value;
     }
 
-    //TODO make get logic
-    fn get(&self, row: usize, col: usize) -> &T {
-        &self.data[row][col]
+    fn get_diagional(&self) -> Vec<T>
+    where
+        T: Clone,
+    {
+        let mut diag = Vec::new();
+        for i in 0..self.rows {
+            diag.push(self.data[i][i].clone());
+        }
+        diag
     }
 
-    fn 
+    fn get_reverse_diagional(&self) -> Vec<T>
+    where
+        T: Clone,
+    {
+        let mut diag = Vec::new();
+        for i in 0..self.rows {
+            diag.push(self.data[i][self.cols - i - 1].clone());
+        }
+        diag
+    }
 }
 
 pub fn advent_of_code4a(input_str: &str) -> i32 {
@@ -53,7 +69,66 @@ pub fn advent_of_code4a(input_str: &str) -> i32 {
         row_idx += 1;
     }
 
+    let pattern = Regex::new(r"XMAS").unwrap();
+    let reverse_pattern = Regex::new(r"SAMX").unwrap();
+    let pattern_length = "XMAS".len();
+
+    let mut count = 0;
+
+    for i in 0..matrix.rows {
+        let row = matrix.data[i].iter().collect::<String>();
+        let matches: Vec<_> = pattern.find_iter(&row).collect();
+        count += matches.len();
+
+        let matches: Vec<_> = reverse_pattern.find_iter(&row).collect();
+        count += matches.len();
+    }
+
+    for i in 0..matrix.cols {
+        let col = matrix.data.iter().map(|row| row[i]).collect::<String>();
+        let matches: Vec<_> = pattern.find_iter(&col).collect();
+        count += matches.len();
+
+        let matches: Vec<_> = reverse_pattern.find_iter(&col).collect();
+        count += matches.len();
+    }
+
+    for i in 0..matrix.rows {
+        for j in 0..matrix.cols {
+            if i + pattern_length - 1 < matrix.rows && j + pattern_length - 1 < matrix.cols {
+                let mut sub_matrix = Matrix::new(pattern_length, pattern_length, '_');
+
+                for row_index in 0..pattern_length {
+                    for col_index in 0..pattern_length {
+                        sub_matrix.set(
+                            row_index,
+                            col_index,
+                            matrix.data[i + row_index][j + col_index],
+                        );
+                    }
+                }
+                let diag = sub_matrix.get_diagional().iter().collect::<String>();
+                let reverse_diag = sub_matrix
+                    .get_reverse_diagional()
+                    .iter()
+                    .collect::<String>();
+
+                let matches: Vec<_> = pattern.find_iter(&diag).collect();
+                let reverse_pattern_matches: Vec<_> = reverse_pattern.find_iter(&diag).collect();
+                count += matches.len();
+                count += reverse_pattern_matches.len();
+
+                let reverse_matches: Vec<_> = pattern.find_iter(&reverse_diag).collect();
+                let reverse_reverse_matches: Vec<_> =
+                    reverse_pattern.find_iter(&reverse_diag).collect();
+                count += reverse_matches.len();
+                count += reverse_reverse_matches.len();
+            }
+        }
+    }
+
+    println!("{:?}", count);
     println!("{:?}", matrix.data);
 
-    18
+    count as i32
 }
