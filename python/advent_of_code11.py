@@ -53,9 +53,6 @@ def advent_of_code11b(input_str: str, blinks: int) -> int:
     return output_len
             
         
-
-
-
 if __name__ == "__main__":
 
     test_input = "125 17"
