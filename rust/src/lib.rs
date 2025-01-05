@@ -1,10 +1,12 @@
 pub mod advent_of_code1;
+pub mod advent_of_code11;
 pub mod advent_of_code2;
 pub mod advent_of_code3;
 pub mod advent_of_code4;
 #[cfg(test)]
 mod tests {
     use crate::advent_of_code1::*;
+    use crate::advent_of_code11::*;
     use crate::advent_of_code2::*;
     use crate::advent_of_code3::*;
     use crate::advent_of_code4::*;
@@ -69,6 +71,13 @@ MAMMMXMMMM
 MXMXAXMASX";
         let result: i32 = advent_of_code4a(input_str);
         assert_eq!(result, 18)
+    }
+
+    #[test]
+    fn test_advent_of_code11() {
+        let input_str: &str = "125 17";
+        let result: i64 = advent_of_code11(input_str, 25);
+        assert_eq!(result, 55312)
     }
 }
 
