@@ -6,6 +6,25 @@ pub fn advent_of_code2a(input_vec: &mut Vec<Vec<i32>>) -> i32 {
     result
 }
 
+pub fn advent_of_code2b(input_vec: &mut Vec<Vec<i32>>) -> i32 {
+    let mut count = 0;
+    for vec in input_vec.iter_mut() {
+        if is_safe(vec) {
+            count += 1;
+        } else {
+            for idx in 0..vec.len() {
+                let mut vec_copy = vec.clone();
+                vec_copy.remove(idx);
+                if is_safe(&mut vec_copy) {
+                    count += 1;
+                    break
+                }
+            }
+        }
+    }
+    count
+}
+
 fn is_safe(input_vec: &mut Vec<i32>) -> bool {
     let pairwsise_difference: Vec<i32> = input_vec
         .windows(2)

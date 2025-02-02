@@ -17,5 +17,8 @@ fn test_advent_of_code2_integration() {
         vec_1.push(numbers);
     }
     let result: i32 = advent_of_code2a(&mut vec_1);
-    assert_eq!(result, 257)
+    assert_eq!(result, 257);
+
+    let result: i32 = advent_of_code2b(&mut vec_1);
+    assert_eq!(result, 328)
 }

@@ -42,6 +42,20 @@ mod tests {
     }
 
     #[test]
+    fn test_advent_of_code2b() {
+        let mut vec_1: Vec<Vec<i32>> = vec![
+            vec![7, 6, 4, 2, 1],
+            vec![1, 2, 7, 8, 9],
+            vec![9, 7, 6, 2, 1],
+            vec![1, 3, 2, 4, 5],
+            vec![8, 6, 4, 4, 1],
+            vec![1, 3, 6, 7, 9],
+        ];
+        let result: i32 = advent_of_code2b(&mut vec_1);
+        assert_eq!(result, 4);
+    }
+
+    #[test]
     fn test_advent_of_code3a() {
         let input_str: &str =
             "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))";
