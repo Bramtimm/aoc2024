@@ -1,13 +1,13 @@
 use regex::Regex;
 
-struct Matrix<T> {
-    cols: usize,
-    rows: usize,
-    data: Vec<Vec<T>>,
+pub struct Matrix<T> {
+    pub cols: usize,
+    pub rows: usize,
+    pub data: Vec<Vec<T>>,
 }
 
 impl<T> Matrix<T> {
-    fn new(rows: usize, cols: usize, initial: T) -> Self
+    pub fn new(rows: usize, cols: usize, initial: T) -> Self
     where
         T: Clone,
     {
@@ -19,11 +19,15 @@ impl<T> Matrix<T> {
         Matrix { rows, cols, data }
     }
 
-    fn set(&mut self, row: usize, col: usize, value: T) {
+    pub fn set(&mut self, row: usize, col: usize, value: T) {
         self.data[row][col] = value;
     }
 
-    fn get_diagional(&self) -> Vec<T>
+    pub fn get(&self, row: usize, col: usize) -> &T {
+        &self.data[row][col]
+    }
+
+    pub fn get_diagional(&self) -> Vec<T>
     where
         T: Clone,
     {
@@ -34,7 +38,7 @@ impl<T> Matrix<T> {
         diag
     }
 
-    fn get_reverse_diagional(&self) -> Vec<T>
+    pub fn get_reverse_diagional(&self) -> Vec<T>
     where
         T: Clone,
     {
@@ -43,6 +47,36 @@ impl<T> Matrix<T> {
             diag.push(self.data[i][self.cols - i - 1].clone());
         }
         diag
+    }
+
+    pub fn get_unique_items(&self, mis_item: T) -> Vec<T>
+    where
+        T: Clone + PartialEq,
+    {
+        let mut unique_items = Vec::new();
+        for i in 0..self.rows {
+            for j in 0..self.cols {
+                if !unique_items.contains(&self.data[i][j]) && self.data[i][j] != mis_item {
+                    unique_items.push(self.data[i][j].clone());
+                }
+            }
+        }
+        unique_items
+    }
+
+    pub fn get_count(&self, item: T) -> usize
+    where
+        T: PartialEq,
+    {
+        let mut count = 0;
+        for i in 0..self.rows {
+            for j in 0..self.cols {
+                if self.data[i][j] == item {
+                    count += 1;
+                }
+            }
+        }
+        count
     }
 }
 

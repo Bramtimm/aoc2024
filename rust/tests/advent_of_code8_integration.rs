@@ -7,5 +7,5 @@ fn test_advent_of_code8_integration() {
     let contents = fs::read_to_string(&file_path).expect("Should have been able to read the file");
 
     let result = advent_of_code8a(&contents);
-    assert_eq!(result, 0);
+    assert_eq!(result, 280);
 }

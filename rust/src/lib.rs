@@ -126,6 +126,7 @@ MXMXAXMASX";
         assert_eq!(result, 143);
     }
 
+    #[test]
     fn test_advent_of_code8a() {
         let input_str: &str = "............
 ........0...
