@@ -4,6 +4,7 @@ pub mod advent_of_code2;
 pub mod advent_of_code3;
 pub mod advent_of_code4;
 pub mod advent_of_code5;
+pub mod advent_of_code8;
 #[cfg(test)]
 mod tests {
     use crate::advent_of_code1::*;
