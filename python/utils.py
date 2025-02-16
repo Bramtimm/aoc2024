@@ -37,6 +37,22 @@ class Matrix:
 
         return self.column
     
+    def get_unique_items(self, exclude = []):
+        self.unique_items = []
+        for row in self.data:
+            for item in row:
+                if item not in self.unique_items and item not in exclude:
+                    self.unique_items.append(item)
+        return self.unique_items
+    
+    def count_nr_of_item(self, item):
+        self.count = 0
+        for row in self.data:
+            for i in row:
+                if i == item:
+                    self.count += 1
+        return self.count
+    
     def print_matrix(self):
         for rows in self.data:
             print(rows)
