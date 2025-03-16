@@ -1,4 +1,29 @@
+from dataclasses import dataclass
+from utils import Matrix
+
+@dataclass
+class Region:
+    area: int
+    perimeter: int
+
+
 def advent_of_code12a(input_str: str) -> int:
+
+    input_str = input_str.split()
+    input_str = [list(line) for line in input_str]
+
+
+    nrows = len(input_str)
+    ncols = len(input_str[0])
+
+    input_matrix = Matrix(nrows, ncols)
+    
+    for row in range(0, nrows):
+        for col in range(0, ncols):
+            input_matrix[row, col] = input_str[row][col]
+
+    input_matrix.print_matrix()
+
     return 0
 
 if __name__=="__main__":
