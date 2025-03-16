@@ -1,5 +1,6 @@
 pub mod advent_of_code1;
 pub mod advent_of_code11;
+pub mod advent_of_code12;
 pub mod advent_of_code2;
 pub mod advent_of_code3;
 pub mod advent_of_code4;
@@ -9,6 +10,7 @@ pub mod advent_of_code8;
 mod tests {
     use crate::advent_of_code1::*;
     use crate::advent_of_code11::*;
+    use crate::advent_of_code12::*;
     use crate::advent_of_code2::*;
     use crate::advent_of_code3::*;
     use crate::advent_of_code4::*;
@@ -150,6 +152,31 @@ MXMXAXMASX";
         let input_str: &str = "125 17";
         let result: i64 = advent_of_code11(input_str, 25);
         assert_eq!(result, 55312)
+    }
+
+    #[test]
+    fn test_advent_of_code12a() {
+        let input_str: &str = "AAAA
+    BBCD
+    BBCC
+    EEEC";
+
+        let result: i32 = advent_of_code12a(input_str);
+        assert_eq!(result, 772);
+
+        let input_str: &str = "RRRRIICCFF
+    RRRRIICCCF
+    VVRRRCCFFF
+    VVRCCCJFFF
+    VVVVCJJCFE
+    VVIVCCJJEE
+    VVIIICJJEE
+    MIIIIIJJEE
+    MIIISIJEEE
+    MMMISSJEEE";
+
+        let result: i32 = advent_of_code12a(input_str);
+        assert_eq!(result, 1930)
     }
 }
 
