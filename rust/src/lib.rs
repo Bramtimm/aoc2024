@@ -2,6 +2,7 @@ pub mod advent_of_code1;
 pub mod advent_of_code11;
 pub mod advent_of_code12;
 pub mod advent_of_code2;
+pub mod advent_of_code23;
 pub mod advent_of_code3;
 pub mod advent_of_code4;
 pub mod advent_of_code5;
@@ -12,6 +13,7 @@ mod tests {
     use crate::advent_of_code11::*;
     use crate::advent_of_code12::*;
     use crate::advent_of_code2::*;
+    use crate::advent_of_code23::*;
     use crate::advent_of_code3::*;
     use crate::advent_of_code4::*;
     use crate::advent_of_code5::*;
@@ -156,27 +158,66 @@ MXMXAXMASX";
 
     #[test]
     fn test_advent_of_code12a() {
-        let input_str: &str = "AAAA
-    BBCD
-    BBCC
-    EEEC";
+    //     let input_str: &str = "AAAA
+    // BBCD
+    // BBCC
+    // EEEC";
 
-        let result: i32 = advent_of_code12a(input_str);
+        let result: i32 = advent_of_code12a(/*input_str*/);
         assert_eq!(result, 772);
 
-        let input_str: &str = "RRRRIICCFF
-    RRRRIICCCF
-    VVRRRCCFFF
-    VVRCCCJFFF
-    VVVVCJJCFE
-    VVIVCCJJEE
-    VVIIICJJEE
-    MIIIIIJJEE
-    MIIISIJEEE
-    MMMISSJEEE";
+    //     let input_str: &str = "RRRRIICCFF
+    // RRRRIICCCF
+    // VVRRRCCFFF
+    // VVRCCCJFFF
+    // VVVVCJJCFE
+    // VVIVCCJJEE
+    // VVIIICJJEE
+    // MIIIIIJJEE
+    // MIIISIJEEE
+    // MMMISSJEEE";
 
-        let result: i32 = advent_of_code12a(input_str);
+        let result: i32 = advent_of_code12a(/*input_str*/);
         assert_eq!(result, 1930)
+    }
+
+    #[test]
+    fn test_advent_of_code23a() {
+        let input_str: &str = "kh-tc
+qp-kh
+de-cg
+ka-co
+yn-aq
+qp-ub
+cg-tb
+vc-aq
+tb-ka
+wh-tc
+yn-cg
+kh-ub
+ta-co
+de-co
+tc-td
+tb-wq
+wh-td
+ta-ka
+td-qp
+aq-cg
+wq-ub
+ub-vc
+de-ta
+wq-aq
+wq-vc
+wh-yn
+ka-de
+kh-ta
+co-tc
+wh-qp
+tb-vc
+td-yn";
+
+        let result: i32 = advent_of_code23a(input_str);
+        assert_eq!(result, 7);
     }
 }
 
