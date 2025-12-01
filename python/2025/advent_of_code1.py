@@ -46,7 +46,6 @@ def advent_of_code1b(puzzle_input: list[str]) -> int:
         elif starting_point + code == 0 or starting_point + code == 100:
             starting_point = 0
             times_pointing_zero += 1
-
         elif starting_point + code < 0 and starting_point != 0:
             remainder = starting_point + code
             starting_point = 100 + remainder
