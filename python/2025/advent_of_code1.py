@@ -34,15 +34,29 @@ def advent_of_code1b(puzzle_input: list[str]) -> int:
     times_pointing_zero = 0
 
     for code in code_list:
-        times_across_zero += abs(code) // 100
-        code = code % 100
+        if code > 0:
+            times_across_zero += code // 100
+            code = code % 100
+        elif code < 0:
+            times_across_zero += code // -100
+            code = code % -100
 
-        original_point = starting_point
-        starting_point = (starting_point + code) % 100
-
-        if starting_point == 0:
+        if starting_point + code > 0 and starting_point + code < 100:
+            starting_point += code
+        elif starting_point + code == 0 or starting_point + code == 100:
+            starting_point = 0
             times_pointing_zero += 1
-        if (original_point + code) < 0 or (original_point + code) >= 100:
+
+        elif starting_point + code < 0 and starting_point != 0:
+            remainder = starting_point + code
+            starting_point = 100 + remainder
+            times_across_zero += 1
+        elif starting_point + code < 0 and starting_point == 0:
+            remainder = starting_point + code
+            starting_point = 100 + remainder
+
+        elif starting_point + code > 100:
+            starting_point = starting_point + code - 100
             times_across_zero += 1
 
     return times_across_zero + times_pointing_zero
