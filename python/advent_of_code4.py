@@ -21,7 +21,7 @@ def advent_of_code4a(test_input: str | list, pattern = 'XMAS') -> int:
     for row in range(0, nrows):
         for col in range(0, ncols):
             puzzle_matrix[row, col] = puzzle_input[row][col]
-
+    
     row_count = 0
     col_count = 0
     diag_count = 0

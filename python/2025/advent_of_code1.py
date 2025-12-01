@@ -57,23 +57,19 @@ def advent_of_code1b(puzzle_input: list[str]) -> int:
             starting_point += code
         elif starting_point + code == 0 or starting_point + code == 100:
             starting_point = 0
-            times_pointing_zero +=1
-    
-        elif starting_point + code < 0 and starting_point!=0:
+            times_pointing_zero += 1
+
+        elif starting_point + code < 0 and starting_point != 0:
             remainder = starting_point + code
             starting_point = 100 + remainder
             times_across_zero += 1
-        elif starting_point + code < 0 and starting_point==0:
+        elif starting_point + code < 0 and starting_point == 0:
             remainder = starting_point + code
             starting_point = 100 + remainder
 
         elif starting_point + code > 100:
             starting_point = starting_point + code - 100
             times_across_zero += 1
-        
-        print(f"{starting_point}, {code}, {times_across_zero}, {times_pointing_zero} ")
-
-        
 
     return times_across_zero + times_pointing_zero
 
