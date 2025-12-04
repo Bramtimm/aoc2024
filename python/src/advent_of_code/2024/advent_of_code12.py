@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from utils import Matrix
+from python.src.advent_of_code.utils import Matrix
 
 @dataclass
 class Region:
