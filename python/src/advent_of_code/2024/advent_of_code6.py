@@ -1,12 +1,12 @@
 import copy
 
-from utils import Matrix
+from advent_of_code.utils import Matrix
 
 class PositionMatrix(Matrix):
 
    
     def __init__(self, nrow, ncol):
-        super().__init__(nrow, ncol)
+        super().__init__(nrow, ncol, data=None)
 
 
     @property

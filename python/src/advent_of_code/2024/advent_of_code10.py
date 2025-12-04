@@ -1,4 +1,4 @@
-from utils import Matrix
+from python.src.advent_of_code.utils import Matrix
 
 
 def advent_of_code_10(puzzle_input: str, max_height: int=9, exercise: str = 'a') -> int:
