@@ -28,8 +28,7 @@ def advent_of_code5b(id_ranges: list[tuple[int]]) -> int:
         elif min_id <= count_id and count_id <= max_id:
             fresh_id_counter += max_id - count_id
             count_id = max_id
-        elif count_id > min_id and count_id > max_id:
-            next
+
     return fresh_id_counter
 
 
