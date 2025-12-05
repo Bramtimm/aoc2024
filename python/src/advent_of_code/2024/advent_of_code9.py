@@ -13,29 +13,23 @@ class MemoryBlock:
 
 
 def advent_of_code9a(input_string: str) -> int:
-
     pairs = list(batched(input_string, n=2))
 
     # files = [pair[0] for pair in pairs]
     # files_with_id = {str(i+1): value for i, value in enumerate(files)}
     # free_space = [pair[1] for pair in pairs if len(pair)==2]
-    
+
     for pair in pairs:
+        pass
 
-        
-
-
-        print(files_with_id)
 
 def _check_sum(output) -> int:
     0
 
-
-    
     pass
 
+
 if __name__ == "__main__":
-    
     test_input = """2333133121414131402"""
 
     test_output = advent_of_code9a(test_input)
