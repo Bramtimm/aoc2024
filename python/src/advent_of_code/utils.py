@@ -88,5 +88,7 @@ class Matrix:
         return f"Matrix(\n{self.data})"
 
     def __str__(self):
-        for rows in self.data:
-            print(rows)
+        strings = []
+        for row in self.data:
+            strings.append(str(row))
+        return '\n'.join(strings)
