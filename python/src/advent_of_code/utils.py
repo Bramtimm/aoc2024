@@ -10,7 +10,13 @@ class Matrix:
         if data is None:
             self.data = [[fill for _ in range(ncol)] for _ in range(nrow)]
         else:
-            self.data = data
+            if len(data) > nrow:
+                data = [data[i : i + ncol] for i in range(0, len(data), ncol)]
+
+                if len(data[0]) > ncol:
+                    raise ValueError("data is of wrong dimensions")
+
+                self.data = data
 
     def __getitem__(self, key):
         if isinstance(key, int):
@@ -87,8 +93,11 @@ class Matrix:
     def __repr__(self):
         return f"Matrix(\n{self.data})"
 
+    def shape(self):
+        return (self.nrow, self.ncol)
+
     def __str__(self):
         strings = []
         for row in self.data:
             strings.append(str(row))
-        return '\n'.join(strings)
+        return "\n".join(strings)
