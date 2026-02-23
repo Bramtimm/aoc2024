@@ -8,6 +8,9 @@ fn test_advent_of_code2_integration() {
     let contents = fs::read_to_string(&file_path).expect("Should have been able to read the file");
 
     let bag = vec![(12 ,13, 14)];
-    let result: i32 = advent_of_code2(&contents, bag);
+    let result: i32 = advent_of_code2a(&contents, bag);
     assert_eq!(result, 2505);
+
+    let result_2b: i32 = advent_of_code2b(&contents);
+    assert_eq!(result_2b, 1);
 }

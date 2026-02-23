@@ -1,6 +1,7 @@
 use regex::Regex;
+use std::collections::HashMap;
 
-pub fn advent_of_code2(puzzle_input: &str, bag: Vec<(i32, i32, i32)>) -> i32 {
+pub fn advent_of_code2a(puzzle_input: &str, bag: Vec<(i32, i32, i32)>) -> i32 {
     let game_re: Regex = Regex::new(r"([0-9]+\b):").unwrap();
     let color_re: Regex = Regex::new(r"(\d+) (red|green|blue)").unwrap();
 
@@ -37,3 +38,34 @@ pub fn advent_of_code2(puzzle_input: &str, bag: Vec<(i32, i32, i32)>) -> i32 {
     }
     total
 }
+
+pub fn advent_of_code2b(puzzle_input: &str) -> i32 {
+    let game_re: Regex = Regex::new(r"([0-9]+\b):").unwrap();
+    let color_re: Regex = Regex::new(r"(\d+) (red|green|blue)").unwrap();
+
+    let mut total = 0;
+    for line in puzzle_input.lines() {
+        if let Some(_caps) = game_re.captures(line) {
+            let mut color_counts: HashMap<&str, i32> = HashMap::new(); 
+
+            for round in line.split(';') {
+                for cap in color_re.captures_iter(round) {
+                   let count: i32 = cap[1].parse().unwrap();
+                   let color = &cap[2];
+                   
+                   color_counts.entry("red").or_insert(1);
+                   color_counts.entry("green").or_insert(1);
+                   color_counts.entry("blue").or_insert(1);
+
+                   if let Some(entry) = color_counts.get_mut(color) {
+                    *entry = std::cmp::max(*entry, count)
+                   }
+                   
+                };
+            };
+                let product: i32 = color_counts.values().product();
+                total += product
+            }
+        }
+        total
+    }
